@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="index.css">
+	<!--引用最新版本  -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+	<!-- 引用本地的配置文件 -->
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">{{message}}</div>
+	<script>
+		//vue Devtools配置
+		Vue.config.devtools = true
+		
+		var app = new Vue({
+			el:	'#app',
+			data:{
+				message:'hello Vue!'
+			}
+		})		
+	</script>
+</body>
+</html>
