@@ -1,21 +1,20 @@
-####1-1工具安装
+#### 1-1工具安装
 工欲善其事，必先利其器，在使用 Vue 时，推荐在浏览器上安装 [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools)。你可以更好调试 Vue 应用。
-
-vue可以直接引用最新版本```        <script src="https://cdn.jsdelivr.net/npm/vue"></script>```
+vue可以直接引用最新版本```<script src="https://cdn.jsdelivr.net/npm/vue"></script>```
 也可以下载到本地 [vue.js](https://vuejs.org/js/vue.js)
-####1-2hello world
+#### 1-2hello world
 国际惯例先来个hello world [源码](https://github.com/CleanWaterjx/HelloVue/blob/master/VueLearn1/HelloVue.html)
 
 ```
-	<div id="app">{{message}}</div>	
+<div id="app">{{message}}</div>	
 ```
 ```
-		var app = new Vue({
-			el:	'#app',
-			data:{
-				message:'hello Vue!'
-			}
-		})		
+  var app = new Vue({
+		el:	'#app',
+		data:{
+			message:'hello Vue!'
+    }
+	})		
 
 ```
 
@@ -28,19 +27,19 @@ vue可以直接引用最新版本```        <script src="https://cdn.jsdelivr.ne
 除了hello world中那样文本插值，我们还可以这样来绑定元素特性[源码](https://github.com/CleanWaterjx/HelloVue/blob/master/VueLearn1/Bind.html)
 
 ```	
-	<div id="app-2">
-		<span v-bind:title="message">
-		   鼠标悬停几秒钟查看此处动态绑定的提示信息！	
-		</span>
-	</div>		
+ <div id="app-2">
+	 <span v-bind:title="message">
+	   鼠标悬停几秒钟查看此处动态绑定的提示信息！	
+	 </span>
+ </div>		
 ```
 ```
-	var app2 = new Vue({
-			el:'#app-2',
-			data:{
-				message: '页面加载于' + new Date().toLocaleString()
-			}
-		})
+ var app2 = new Vue({
+		el:'#app-2',
+		data:{
+			message: '页面加载于' + new Date().toLocaleString()			
+    }
+ })
 ```
 #### 1-4条件和循环(v-if v-for)
 [源码](https://github.com/CleanWaterjx/HelloVue/blob/master/VueLearn1/Conditional.html)
@@ -129,33 +128,33 @@ vue允许我们使用小型、独立和通常可复用的组件构建大型应�
 ```
 数据的传递通过v-bind: 来定义传递的属性，后面跟上要传递的值
 通过“props”来接受属性，再通过插值表达式来展示{{ todo.text}}
-	<div id = "app-7">
-		<ol>
-			<todo-item
-				v-for = "item in groceryList"
-				v-bind:todo = "item"
-				v-bind:key = "item.id"
-			></todo-item>
-		</ol>
-	</div>
+<div id = "app-7">
+  <ol>
+    <todo-item
+      v-for = "item in groceryList"
+      v-bind:todo = "item"
+      v-bind:key = "item.id"
+      ></todo-item>
+  </ol>
+</div>	
 ```
 ```
-      //组键的定义
-        Vue.component('todo-item', {
-  			props: ['todo'],
-  			template: '<li>{{ todo.text }}</li>'
-		})
+  //组键的定义
+Vue.component('todo-item', {
+  props: ['todo'],
+  	template: '<li>{{ todo.text }}</li>'
+})
 
 ```
 ```
-        var app7 = new Vue({
-			el:'#app-7',
-			data:{
-				groceryList:[
-					{id : 0,text : '蔬菜'},
-					{id : 1,text : '奶酪'},
-					{id : 2,text : '随便其他什么人吃的东西'}
-				]
-			}
-		})
+var app7 = new Vue({
+	el:'#app-7',
+		data:{
+			groceryList:[
+				{id : 0,text : '蔬菜'},
+				{id : 1,text : '奶酪'},
+				{id : 2,text : '随便其他什么人吃的东西'}
+			]
+		}
+})
 ```
